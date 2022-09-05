@@ -30,5 +30,23 @@
             </div>
         </div>
     </div>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    Classes
+                </div>
+                <div class="card-body">
+                    <div>Class (Teacher's name) - classroom - time schedule</div>
+                    <br>
+                    <div>Guitar (Mr String) - C12 - Wednesday 5.20PM</div>
+                    <br>
+                    <div>Piano (Mrs Key) - C1 - Tuesday 6.10PM</div>
+                    <br>
+                    <div>Music theory (Mrs Sheet) - C1 - Wednesday 6.10PM</div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection
