@@ -5,13 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Course extends Model
+class Group extends Model
 {
     use HasFactory;
 
-    // Connect the course to many groups
-    public function groups() 
+    // Connects the group to a course
+    public function course() 
     {
-        return $this->hasMany(Group::class);
+        return $this->belongsTo(Course::class);
     }
 }

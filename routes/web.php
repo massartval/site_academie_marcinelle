@@ -30,4 +30,5 @@ Route::get('/dashboard', [App\Http\Controllers\ProfileController::class, 'show']
 // Course
 Route::get('/courses', [App\Http\Controllers\CourseController::class, 'index']);
 
-// Class
+// Group
+Route::get('/groups', [App\Http\Controllers\GroupController::class, 'index']);
