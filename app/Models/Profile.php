@@ -14,4 +14,9 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function isStudentInGroup() 
+    {
+        return $this->belongsToMany(Group::class);
+    }
 }

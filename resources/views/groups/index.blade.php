@@ -14,10 +14,16 @@
                         </div>
                     @endif
 
-                    @foreach ($groups as $group)
+                    @foreach($groups as $group)
                     <div>
-                        {{ $group->course->name }} {{ $group->teacher_name }} {{ $group->weekday }} {{ Carbon::parse($group->start_time)->format('H:i') }} {{$group->start_time}}
+                        {{ $group->course->name }} {{ $group->teacher_name }} {{ $group->weekday }} {{ Carbon::parse($group->start_time)->format('H:i') }}
                     </div>
+                    <div>
+                        @foreach($group->hasStudents as $student) 
+                        {{ $student->id }}
+                        @endforeach
+                    </div>
+                    <br/>
                     @endforeach
                 </div>
             </div>

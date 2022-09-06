@@ -12,4 +12,10 @@ class GroupController extends Controller
         $groups = Group::get();
         return view('groups.index', compact('groups'));
     }
+
+    public function dashboardIndex() 
+    {
+        $groups = auth()->user()->profile->isStudentInGroup;
+        return view('groups.index', compact('groups'));
+    }
 }

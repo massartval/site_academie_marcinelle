@@ -79,13 +79,33 @@ class PopulateDatabase extends Migration
             ],
             [
                 'course_id' => 2,
-                'teacher_name' => 'Mr String',
+                'teacher_name' => 'Mrs Curtain',
                 'classroom' => 'C12',
                 'weekday' => 'Wednesday',
                 'start_time' => Carbon::createFromFormat('H:i', '16:30'),
                 'end_time' => Carbon::createFromFormat('H:i', '17:20'),
             ]
         ]);
+        // Populate group_profile pivot table
+        DB::table('group_profile')->insert([
+            [
+                'group_id' => 1,
+                'profile_id' => 1
+            ],
+            [
+                'group_id' => 2,
+                'profile_id' => 1
+            ],
+            [
+                'group_id' => 3,
+                'profile_id' => 2
+            ],
+            [
+                'group_id' => 4,
+                'profile_id' => 2
+            ]
+        ]);
+
     }
 
     /**
@@ -96,6 +116,7 @@ class PopulateDatabase extends Migration
     public function down()
     {
         // Truncate all tables
+        DB::table('group_profile')->truncate();
         DB::table('profiles')->truncate();
         DB::table('users')->truncate();
         DB::table('groups')->truncate();
