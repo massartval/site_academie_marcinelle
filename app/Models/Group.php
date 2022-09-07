@@ -15,7 +15,8 @@ class Group extends Model
         return $this->belongsTo(Course::class);
     }
 
-    public function hasStudents() 
+    // Connects the group to many profiles
+    public function profiles() 
     {
         return $this->belongsToMany(Profile::class);
     }

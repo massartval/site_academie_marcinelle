@@ -23,9 +23,8 @@ Auth::routes();
 
 // Home
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-// Profile
-Route::get('/dashboard', [App\Http\Controllers\ProfileController::class, 'show'])->name('dashboard');
+// Dashboard
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'show'])->name('dashboard');
 
 // Course
 Route::get('/courses', [App\Http\Controllers\CourseController::class, 'index']);

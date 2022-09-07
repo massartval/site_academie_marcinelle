@@ -19,7 +19,7 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the application homepage.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -27,5 +27,17 @@ class HomeController extends Controller
     {
         $courses = Course::get();
         return view('home', compact('courses'));
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function show()
+    {
+        // Use it to return the dashboard view and any user-relevant information
+        $groups = auth()->user()->profile->groups()->orderBy('course_id')->get();
+        return view('dashboard', compact('groups'));
     }
 }

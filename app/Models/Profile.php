@@ -15,7 +15,8 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function isStudentInGroup() 
+    // Connects the profile to many groups
+    public function groups() 
     {
         return $this->belongsToMany(Group::class);
     }
