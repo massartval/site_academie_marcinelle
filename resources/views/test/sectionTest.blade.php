@@ -1,12 +1,12 @@
-@extends('layouts.app')
+@extends('test.test')
 
-@section('content')
+@section('firstSection')
+    @parent
 <div class="container">
-    <!-- Title -->
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Homepage') }}</div>
+                <div class="card-header">{{ __('First Section') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,28 +14,36 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    
+                    <div>
+                        With "Parent"
+                    </div>
 
-                    {{ __('You are home!') }}
                 </div>
             </div>
         </div>
     </div>
-    
-    <!-- Courses -->
+</div>
+@endsection
+
+@section('secondSection')
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Courses') }}</div>
-    
+                <div class="card-header">{{ __('Second Section') }}</div>
+
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-    
-                    @include('includes.coursesList')
-    
+                    
+                    <div>
+                        Without "Parent"
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -43,3 +51,16 @@
 </div>
 
 @endsection
+
+@section('thirdSection')
+    @parent
+    @include('test.includeTest')
+    With "Parent"
+@endsection
+
+@section('fourthSection')
+    @include('test.includeTest')
+    Without "Parent"
+@endsection
+
+@include('test.includeTest')
