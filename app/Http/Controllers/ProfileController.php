@@ -23,7 +23,8 @@ class ProfileController extends Controller
      */
     public function show()
     {
-        // dd(auth()->user()->name);
-        return view('dashboard');
+        // Use it to return the dashboard view and any user-relevant information
+        $groups = auth()->user()->profile->isStudentInGroup()->orderBy('course_id')->get();
+        return view('dashboard', compact('groups'));
     }
 }

@@ -32,3 +32,10 @@ Route::get('/courses', [App\Http\Controllers\CourseController::class, 'index']);
 
 // Group
 Route::get('/groups', [App\Http\Controllers\GroupController::class, 'index']);
+
+// layout tests
+Route::get('/test', function() {
+    return view ('test/test');
+    // return view ('test/sectionTest');
+});
+

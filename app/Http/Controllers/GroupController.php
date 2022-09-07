@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class GroupController extends Controller
 {
     public function index() 
-    {
-        $groups = Group::get();
+    {   
+        $groups = Group::orderBy('course_id')->get();
         return view('groups.index', compact('groups'));
     }
 }

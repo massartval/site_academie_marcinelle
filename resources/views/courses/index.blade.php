@@ -14,11 +14,7 @@
                         </div>
                     @endif
 
-                    @foreach ($courses as $course)
-                    <div>
-                        {{ $course->name }}
-                    </div>
-                    @endforeach
+                    @include('includes.coursesList')
 
                 </div>
             </div>

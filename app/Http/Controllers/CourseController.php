@@ -12,7 +12,6 @@ class CourseController extends Controller
     public function index() 
     {
         $courses = Course::get();
-        //dd($courses);
         return view('courses.index', compact('courses'));
     }
 }
