@@ -24,6 +24,7 @@ class CreateGroupsTable extends Migration
             $table->timestamps();
             $table->index('course_id');
             // later add indexes for teacher_id and classroom_id
+            // later add name
         });
     }
 

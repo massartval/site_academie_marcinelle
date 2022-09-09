@@ -9,15 +9,21 @@ class Profile extends Model
 {
     use HasFactory;
 
-    // Connects the profile to a user
+    // Connect the profile to a user
     public function user() 
     {
         return $this->belongsTo(User::class);
     }
 
-    // Connects the profile to many groups
+    // Connect the profile to many groups in group_profile_role pivot table
     public function groups() 
     {
-        return $this->belongsToMany(Group::class);
+        return $this->belongsToMany(Group::class, 'group_profile_role');
+    }
+
+    // Connect the profile to many roles in group_profile_role pivot table
+    public function roles() 
+    {
+        return $this->belongsToMany(Role::class, 'group_profile_role');
     }
 }

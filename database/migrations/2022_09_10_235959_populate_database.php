@@ -16,6 +16,11 @@ class PopulateDatabase extends Migration
         // Populate users table
         DB::table('users')->insert([
             [
+                'name' => 'Test User', 
+                'email' => 'testUser@test.com', 
+                'password'=>Hash::make('testtest')
+            ], 
+            [
                 'name' => 'New User', 
                 'email' => 'newUser@test.com', 
                 'password'=>Hash::make('testtest')
@@ -29,7 +34,8 @@ class PopulateDatabase extends Migration
         // Create profiles for users
         DB::table('profiles')->insert([
             ['user_id' => 1],
-            ['user_id' => 2]
+            ['user_id' => 2],
+            ['user_id' => 3]
         ]);
 
         // Populate courses table
@@ -86,23 +92,49 @@ class PopulateDatabase extends Migration
                 'end_time' => Carbon::createFromFormat('H:i', '17:20'),
             ]
         ]);
-        // Populate group_profile pivot table
-        DB::table('group_profile')->insert([
+        // Populate roles table
+        DB::table('roles')->insert([
+            [
+                'name' => 'Admin'
+            ], 
+            [
+                'name' => 'Teacher'
+            ], 
+            [
+                'name' => 'Student'
+            ]
+        ]);    
+        // Populate group_profile_roles pivot table
+        DB::table('group_profile_role')->insert([
             [
                 'group_id' => 1,
-                'profile_id' => 1
+                'profile_id' => 1,
+                'role_id' => 3
             ],
             [
                 'group_id' => 2,
-                'profile_id' => 1
+                'profile_id' => 1,
+                'role_id' => 3
             ],
             [
                 'group_id' => 3,
-                'profile_id' => 2
+                'profile_id' => 2,
+                'role_id' => 3
             ],
             [
                 'group_id' => 4,
-                'profile_id' => 2
+                'profile_id' => 2,
+                'role_id' => 3
+            ],
+            [
+                'group_id' => 1,
+                'profile_id' => 3,
+                'role_id' => 3
+            ],
+            [
+                'group_id' => 4,
+                'profile_id' => 3,
+                'role_id' => 3
             ]
         ]);
 
@@ -116,7 +148,7 @@ class PopulateDatabase extends Migration
     public function down()
     {
         // Truncate all tables
-        DB::table('group_profile')->truncate();
+        DB::table('group_profile_role')->truncate();
         DB::table('profiles')->truncate();
         DB::table('users')->truncate();
         DB::table('groups')->truncate();

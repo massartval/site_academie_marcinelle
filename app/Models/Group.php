@@ -9,15 +9,21 @@ class Group extends Model
 {
     use HasFactory;
 
-    // Connects the group to a course
+    // Connect the group to a course
     public function course() 
     {
         return $this->belongsTo(Course::class);
     }
 
-    // Connects the group to many profiles
+    // Connect the group to many profiles in group_profile_role pivot table
     public function profiles() 
     {
-        return $this->belongsToMany(Profile::class);
+        return $this->belongsToMany(Profile::class, 'group_profile_role');
+    }
+
+    // Connect the group to many roles in group_profile_role pivot table
+    public function roles() 
+    {
+        return $this->belongsToMany(Role::class, 'group_profile_role');
     }
 }
