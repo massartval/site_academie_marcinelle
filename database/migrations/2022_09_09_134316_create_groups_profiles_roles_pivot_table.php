@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGroupProfileRolePivotTable extends Migration
+class CreateGroupsProfilesRolesPivotTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateGroupProfileRolePivotTable extends Migration
     public function up()
     {
         
-        Schema::create('group_profile_role', function (Blueprint $table) {
+        Schema::create('groups_profiles_roles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('group_id');
             $table->unsignedBigInteger('profile_id');
@@ -31,6 +31,6 @@ class CreateGroupProfileRolePivotTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('group_profile_role');
+        Schema::dropIfExists('groups_profiles_roles');
     }
 }

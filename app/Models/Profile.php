@@ -15,15 +15,20 @@ class Profile extends Model
         return $this->belongsTo(User::class);
     }
 
-    // Connect the profile to many groups in group_profile_role pivot table
+    // Connect the profile to many groups in groups_profiles_roles pivot table
     public function groups() 
     {
-        return $this->belongsToMany(Group::class, 'group_profile_role');
+        return $this->belongsToMany(Group::class, 'groups_profiles_roles');
     }
 
-    // Connect the profile to many roles in group_profile_role pivot table
+    // Connect the profile to many roles in groups_profiles_roles pivot table
     public function roles() 
     {
-        return $this->belongsToMany(Role::class, 'group_profile_role');
+        return $this->belongsToMany(Role::class, 'groups_profiles_roles');
+    }
+
+    public function groups_profiles_roles() 
+    {
+        return $this->hasMany(GroupsProfilesRoles::class);
     }
 }

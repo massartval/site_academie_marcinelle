@@ -9,15 +9,20 @@ class Role extends Model
 {
     use HasFactory;
 
-    // Connect the role to many groups in group_profile_role pivot table
+    // Connect the role to many groups in groups_profiles_roles pivot table
     public function groups() 
     {
-        return $this->belongsToMany(Group::class, 'group_profile_role');
+        return $this->belongsToMany(Group::class, 'groups_profiles_roles');
     }
 
-    // Connect the role to many profiles in group_profile_role pivot table
+    // Connect the role to many profiles in groups_profiles_roles pivot table
     public function profiles() 
     {
-        return $this->belongsToMany(Profile::class, 'group_profile_role');
+        return $this->belongsToMany(Profile::class, 'groups_profiles_roles');
+    }
+
+    public function groups_profiles_roles() 
+    {
+        return $this->hasMany(GroupsProfilesRoles::class);
     }
 }
