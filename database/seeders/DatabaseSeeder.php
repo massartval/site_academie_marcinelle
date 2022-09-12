@@ -61,61 +61,120 @@ class DatabaseSeeder extends Seeder
         ['user_id' => 5],
         ['user_id' => 6]
     ]);
-
+    // Populate classrooms table
+    DB::table('classrooms')->insert([
+        [
+            'name' => 'C1'
+        ], 
+        [
+            'name' => 'C2'
+        ], 
+        [
+            'name' => 'C3'
+        ]
+    ]);  
     // Populate courses table
     DB::table('courses')->insert([
         [
-            'name' => 'Music theory', 
-            'domain' => 'Musique'
+            'domain_id' => 3,
+            'name' => 'Music theory'
         ], 
         [
-            'name' => 'Drama', 
-            'domain' => 'Arts de la parole'
+            'domain_id' => 1,
+            'name' => 'Drama'
         ], 
         [
-            'name' => 'Guitar', 
-            'domain' => 'Musique'
+            'domain_id' => 3,
+            'name' => 'Guitar'
         ], 
         [
-            'name' => 'Poetry', 
-            'domain' => 'Arts de la parole'
-        ]
-    ]);
-    // Populate groups table
-    DB::table('groups')->insert([
+            'domain_id' => 1,
+            'name' => 'Poetry'
+            ]
+        ]);
+        // Populate domains table
+        DB::table('domains')->insert([
+            [
+                'name' => 'Arts de la parole'
+            ], 
+            [
+                'name' => 'Expression corporelle'
+            ],
+            [
+                'name' => 'Musique'
+            ], 
+            [
+                'name' => 'Pluridisciplinaire'
+            ]
+        ]);   
+        // Populate groups table
+        DB::table('groups')->insert([
         [
+            'classroom_id' => 1,
             'course_id' => 1,
-            'teacher_name' => 'Mrs Key',
-            'classroom' => 'C12',
+            'level_id' => 1,
             'weekday' => 'Wednesday',
             'start_time' => Carbon::createFromFormat('H:i', '18:10'),
             'end_time' => Carbon::createFromFormat('H:i', '19:00'),
         ],
         [
+            'classroom_id' => 2,
             'course_id' => 2,
-            'teacher_name' => 'Mr Skull',
-            'classroom' => 'C1',
+            'level_id' => 3,
             'weekday' => 'Tuesday',
             'start_time' => Carbon::createFromFormat('H:i', '18:10'),
             'end_time' => Carbon::createFromFormat('H:i', '19:00'),
         ],
         [
+            'classroom_id' => 3,
             'course_id' => 3,
-            'teacher_name' => 'Mr String',
-            'classroom' => 'C12',
+            'level_id' => 5,
             'weekday' => 'Wednesday',
             'start_time' => Carbon::createFromFormat('H:i', '17:20'),
             'end_time' => Carbon::createFromFormat('H:i', '18:10'),
         ],
         [
+            'classroom_id' => 2,
             'course_id' => 4,
-            'teacher_name' => 'Mr Skull',
-            'classroom' => 'C12',
+            'level_id' => 7,
             'weekday' => 'Wednesday',
             'start_time' => Carbon::createFromFormat('H:i', '16:30'),
             'end_time' => Carbon::createFromFormat('H:i', '17:20'),
         ]
     ]);
+    // Populate levels table
+    DB::table('levels')->insert([
+        [
+            'name' => 'F1'
+        ], 
+        [
+            'name' => 'F2'
+        ], 
+        [
+            'name' => 'F3'
+        ],
+        [
+            'name' => 'F4'
+        ], 
+        [
+            'name' => 'F5'
+        ], 
+        [
+            'name' => 'Q1'
+        ], 
+        [
+            'name' => 'Q2'
+        ], 
+        [
+            'name' => 'Q3'
+        ],
+        [
+            'name' => 'Q4'
+        ], 
+        [
+            'name' => 'Q5'
+        ], 
+    ]);  
     // Populate roles table
     DB::table('roles')->insert([
         [

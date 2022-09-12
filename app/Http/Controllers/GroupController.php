@@ -13,7 +13,7 @@ class GroupController extends Controller
     {   
         
         // 1) Working solution, but lots of queries 
-        $groups = Group::with('course', 'teachers.profile.user', 'students.profile.user')->orderBy('course_id')->get();
+        $groups = Group::with('classroom', 'course', 'level', 'teachers.user', 'students.user')->orderBy('course_id')->get();
 
         // 2) Kind of working solution, only 5 queries but I get all the records of profiles-roles, whereas I want only those from the group
         //$groups = Group::with('course','profiles.user', 'profiles.roles')->get(); 

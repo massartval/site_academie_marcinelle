@@ -2,7 +2,7 @@
 {{--1--}}
 @foreach($groups as $group)
     <div>
-        {{ $group->course->name }} {{ $group->weekday }} {{ Carbon::parse($group->start_time)->format('H:i') }}
+        {{ $group->course->name }} {{ $group->level->name }} {{ $group->weekday }} {{ Carbon::parse($group->start_time)->format('H:i') }} {{ $group->classroom->name }}
     </div>
     <div>
         Teachers : 

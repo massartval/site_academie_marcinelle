@@ -38,8 +38,14 @@ class HomeController extends Controller
     public function show()
     {
         // Use it to return the dashboard view and any user-relevant information
-        $groups = auth()->user()->profile->groups()->orderBy('course_id')->get();
         $user = auth()->user();
+        $groups = $user->profile->groups()->with(
+            'classroom', 
+            'course', 
+            'level', 
+            'teachers.user', 
+            'students.user'
+            )->orderBy('course_id')->get();
         return view('dashboard', compact('groups', 'user'));
     }
 }

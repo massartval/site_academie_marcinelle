@@ -15,16 +15,18 @@ class CreateGroupsTable extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('classroom_id'); // Foreign key to the classrooms table
             $table->unsignedBigInteger('course_id'); // Foreign key to the courses table
-            $table->string('teacher_name'); // later should point to the id of the teacher
-            $table->string('classroom'); // later should (maybe?) point to a classroom id
+            $table->unsignedBigInteger('level_id'); // Foreign key to the levels table
             $table->string('weekday');
             $table->time('start_time');
             $table->time('end_time');
             $table->timestamps();
+            $table->index('classroom_id');
             $table->index('course_id');
-            // later add indexes for teacher_id and classroom_id
-            // later add name
+            $table->index('level_id');
+            // later add indexes for teacher_id
+            // later add name (dynamically generated from course + level)
         });
     }
 

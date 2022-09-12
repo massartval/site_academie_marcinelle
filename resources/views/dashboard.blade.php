@@ -50,7 +50,7 @@
                 <div class="card-body">
                     @foreach($user->profile->attends as $group) 
                         <div>
-                            {{ $group->course->name }}
+                            {{ $group->course->name }} {{ $group->level->name }}
                         </div>
                     @endforeach                    
                 </div>
