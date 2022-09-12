@@ -8,7 +8,6 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
-
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
@@ -28,17 +27,32 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('User Info') }}</div>
-
                 <div class="card-body">
                     <div>
-                        Name : {{ auth()->user()->name; }}
+                        Name : {{ $user->name; }}
                     </div>
                     <div>
-                        ID : {{auth()->user()->id}}
+                        ID : {{ $user->id}}
                     </div>
                     <div>
-                        Profile ID : {{auth()->user()->profile->id}}
+                        Profile ID : {{ $user->profile->id}}
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Attends -->
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Attends') }}</div>
+                <div class="card-body">
+                    @foreach($user->profile->attends as $group) 
+                        <div>
+                            {{ $group->course->name }}
+                        </div>
+                    @endforeach                    
                 </div>
             </div>
         </div>
@@ -49,13 +63,13 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Groups') }}</div>
-
                 <div class="card-body">
                     @include('includes.groupsList')  
                 </div>
             </div>
         </div>
     </div>
+
 </div>
 
 @endsection

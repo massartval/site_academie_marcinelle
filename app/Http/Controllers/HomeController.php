@@ -39,6 +39,7 @@ class HomeController extends Controller
     {
         // Use it to return the dashboard view and any user-relevant information
         $groups = auth()->user()->profile->groups()->orderBy('course_id')->get();
-        return view('dashboard', compact('groups'));
+        $user = auth()->user();
+        return view('dashboard', compact('groups', 'user'));
     }
 }

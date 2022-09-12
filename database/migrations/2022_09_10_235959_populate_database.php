@@ -13,6 +13,7 @@ class PopulateDatabase extends Migration
      */
     public function up()
     {
+        /*
         // Populate users table
         DB::table('users')->insert([
             // Students
@@ -189,7 +190,7 @@ class PopulateDatabase extends Migration
                 'role_id' => 2
             ]
         ]);
-
+        */
     }
 
     /**
@@ -199,11 +200,13 @@ class PopulateDatabase extends Migration
      */
     public function down()
     {
+        /*
         // Truncate all tables
         DB::table('groups_profiles_roles')->truncate();
         DB::table('profiles')->truncate();
         DB::table('users')->truncate();
         DB::table('groups')->truncate();
         DB::table('courses')->truncate();
+        */
     }
 }

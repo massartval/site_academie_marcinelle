@@ -31,4 +31,16 @@ class Group extends Model
     {
         return $this->hasMany(GroupsProfilesRoles::class);
     }
+
+    // Connect the group to its students
+    public function students() 
+    {  
+        return $this->belongsToMany(Profile::class, 'groups_profiles_roles')->with('user')->where('role_id', 3);
+    }
+
+    // Connect the group to its teachers
+    public function teachers()
+    {
+        return $this->belongsToMany(Profile::class, 'groups_profiles_roles')->with('user')->where('role_id', 2);      
+    }
 }

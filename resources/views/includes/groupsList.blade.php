@@ -6,18 +6,15 @@
     </div>
     <div>
         Teachers : 
-        @foreach($group->profiles as $profile) 
-        @if ($profile->roles()->where('group_id', $group->id)->first()->name == 'Teacher')
-            {{ $profile->user->name }}
-        @endif
-    @endforeach
+        @foreach($group->teachers as $profile) 
+        {{$profile->user->name }}
+        @endforeach
+    
     </div>
     <div>
-        Students : 
-        @foreach($group->profiles as $profile) 
-            @if ($profile->roles()->where('group_id', $group->id)->first()->name == 'Student')
-                {{ $profile->user->name }}
-            @endif
+        Students :      
+        @foreach($group->students as $profile) 
+        {{$profile->user->name }}
         @endforeach
     </div>
     <hr>
